@@ -4,7 +4,7 @@ import './App.css';
 import Form from './components/Form/Form'
 import List from './components/List/List'
 import store from'./store'
-
+import Notelist from'./components/notelist/notelist'
 class App extends Component {
  
   render() {
@@ -12,7 +12,8 @@ class App extends Component {
       <Provider store={store}>
       <div className="App container">
         <Form />
-        <List />        
+        <List />   
+        <Notelist />     
       </div>
       </Provider>
     );

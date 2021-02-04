@@ -1,11 +1,15 @@
 
-import {createStore} from'redux'
+import {combineReducers, createStore} from'redux'
 
-const initialState={
+const initialStateTodos={
     todos:[]
+    
+}
+const initialStateNotes={
+    notes:[]
 }
 
-const rootReducer=(state=initialState,action)=>{
+const todoReducer=(state=initialStateTodos,action)=>{
     // return state;
     switch (action.type) {
         case 'ADD_TODOS':
@@ -30,6 +34,7 @@ const rootReducer=(state=initialState,action)=>{
                 ...state,
                 todos
             }
+        
     
         default:
             return state;
@@ -37,6 +42,23 @@ const rootReducer=(state=initialState,action)=>{
 
     
 }
+const noteReducer=(state=initialStateNotes,action)=>{
+    switch (action.type) {
+        case 'NOTE_TODOS':
+            return {
+                ...state,
+                notes:[...state.notes,action.payload]
+            }
+    
+        default:
+            return state;
+    }
+
+}
+const rootReducer=combineReducers({
+    todoReducer:todoReducer,
+    noteReducer:noteReducer
+})
 
 const store=createStore(rootReducer)
 

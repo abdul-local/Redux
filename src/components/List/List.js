@@ -40,7 +40,7 @@ class List extends Component {
 // menghubungkan component dengan redux dan memasukan state ke dalam store
 const mapStateToProps=(state)=>{
   return {
-    todos:state.todos
+    todos:state.todoReducer.todos
   }
 
 }
